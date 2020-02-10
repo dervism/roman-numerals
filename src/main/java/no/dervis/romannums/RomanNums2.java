@@ -47,26 +47,26 @@ public class RomanNums2 {
      * The pattern below continues.
      */
 
-    public Tuple calc(int number, int[] a, String[] b, String romanText) {
+    public Tuple calc(int number, int[] numberArr, String[] romanStrArr, String romanText) {
 
-        if (number >= a[0]) {
-            romanText += b[0];
-            number -= a[0];
+        if (number >= numberArr[0]) {
+            romanText += romanStrArr[0];
+            number -= numberArr[0];
         }
 
-        if (number >= a[1]) {
-            romanText += b[1];
-            number -= a[1];
+        if (number >= numberArr[1]) {
+            romanText += romanStrArr[1];
+            number -= numberArr[1];
         }
 
-        if (number >= a[2]) {
-            romanText += b[2];
-            number -= a[2];
+        if (number >= numberArr[2]) {
+            romanText += romanStrArr[2];
+            number -= numberArr[2];
         }
 
-        while (number >= a[3]) {
-            romanText += b[3];
-            number -= a[3];
+        while (number >= numberArr[3]) {
+            romanText += romanStrArr[3];
+            number -= numberArr[3];
         }
 
         return new Tuple(romanText, number);

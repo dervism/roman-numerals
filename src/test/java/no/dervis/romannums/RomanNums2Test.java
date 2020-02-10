@@ -28,9 +28,11 @@ class RomanNumsTest2 {
         assertEquals("XL", r.toRoman(40));
         assertEquals("XLI", r.toRoman(41));
 
+        assertEquals("XCIX", r.toRoman(99));
         assertEquals("XCVIII", r.toRoman(98));
         assertEquals("LXXVIII", r.toRoman(78));
         assertEquals("LIV", r.toRoman(54));
+        assertEquals("LV", r.toRoman(55));
         assertEquals("XXXIX", r.toRoman(39));
         assertEquals("XI", r.toRoman(11));
         assertEquals("LXXXVI", r.toRoman(86));

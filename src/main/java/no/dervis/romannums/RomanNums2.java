@@ -36,8 +36,7 @@ public class RomanNums2 {
         }
 
         if (base == 100) {
-            Tuple t3 = calc(number,
-                    hundredsArr, hundredsStrArr, romanText);
+            Tuple t3 = calc(number, hundredsArr, hundredsStrArr, romanText);
             return toRoman(t3.rest, t3.romanText);
         }
 

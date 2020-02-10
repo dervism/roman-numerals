@@ -19,68 +19,67 @@ public class RomanNums2 {
      * This solution uses the common logarithm
      * to find the base through the exponential function 10^x.
      */
-    public String toRoman(int number, String ret) {
+    public String toRoman(int number, String romanText) {
 
         int base = (int) Math.pow(10, (int) Math.log10(number));
 
-        if (number == 0) return ret;
+        if (number == 0) return romanText;
 
         if (base == 1) {
-            Tuple t = calc(number, onesArr, onesStrArr, ret);
-            return toRoman(t.rest, t.ret);
+            Tuple t = calc(number, onesArr, onesStrArr, romanText);
+            return toRoman(t.rest, t.romanText);
         }
 
         if (base == 10) {
-            Tuple t2 = calc(number, tensArr, tenStrArr, ret);
-            return toRoman(t2.rest, t2.ret);
+            Tuple t2 = calc(number, tensArr, tenStrArr, romanText);
+            return toRoman(t2.rest, t2.romanText);
         }
 
         if (base == 100) {
             Tuple t3 = calc(number,
-                    hundredsArr, hundredsStrArr, ret);
-            return toRoman(t3.rest, t3.ret);
+                    hundredsArr, hundredsStrArr, romanText);
+            return toRoman(t3.rest, t3.romanText);
         }
 
 
-        return ret;
+        return romanText;
     }
 
     /*
      * The pattern below continues.
      */
 
-    public Tuple calc(int n, int[] a, String[] b, String ret) {
-        int rest = n;
+    public Tuple calc(int number, int[] a, String[] b, String romanText) {
 
-        if (rest >= a[0]) {
-            ret += b[0];
-            rest -= a[0];
+        if (number >= a[0]) {
+            romanText += b[0];
+            number -= a[0];
         }
 
-        if (rest >= a[1]) {
-            ret += b[1];
-            rest -= a[1];
+        if (number >= a[1]) {
+            romanText += b[1];
+            number -= a[1];
         }
 
-        if (rest >= a[2]) {
-            ret += b[2];
-            rest -= a[2];
+        if (number >= a[2]) {
+            romanText += b[2];
+            number -= a[2];
         }
 
-        while (rest >= a[3]) {
-            ret += b[3];
-            rest -= a[3];
+        while (number >= a[3]) {
+            romanText += b[3];
+            number -= a[3];
         }
 
-        return new Tuple(ret, rest);
+        return new Tuple(romanText, number);
     }
 
-    class Tuple {
-        String ret;
+    private static class Tuple {
+        String romanText;
         int rest;
 
-        public Tuple(String ret, int rest) {
-            this.ret = ret;
+        public Tuple(String romanText, int rest) {
+            this.romanText = romanText;
             this.rest = rest;
         }
     }

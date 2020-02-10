@@ -31,13 +31,13 @@ public class RomanNums2 {
         }
 
         if (base == 10) {
-            Tuple t2 = calc(number, tensArr, tenStrArr, romanText);
-            return toRoman(t2.rest, t2.romanText);
+            Tuple t = calc(number, tensArr, tenStrArr, romanText);
+            return toRoman(t.rest, t.romanText);
         }
 
         if (base == 100) {
-            Tuple t3 = calc(number, hundredsArr, hundredsStrArr, romanText);
-            return toRoman(t3.rest, t3.romanText);
+            Tuple t = calc(number, hundredsArr, hundredsStrArr, romanText);
+            return toRoman(t.rest, t.romanText);
         }
 
         return romanText;

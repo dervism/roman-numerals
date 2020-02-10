@@ -41,7 +41,6 @@ public class RomanNums2 {
             return toRoman(t3.rest, t3.romanText);
         }
 
-
         return romanText;
     }
 

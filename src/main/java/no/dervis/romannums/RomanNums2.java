@@ -27,17 +27,17 @@ public class RomanNums2 {
 
         if (base == 1) {
             Tuple t = calc(number, onesArr, onesStrArr, romanText);
-            return toRoman(t.rest, t.romanText);
+            return toRoman(t.number, t.romanText);
         }
 
         if (base == 10) {
             Tuple t = calc(number, tensArr, tenStrArr, romanText);
-            return toRoman(t.rest, t.romanText);
+            return toRoman(t.number, t.romanText);
         }
 
         if (base == 100) {
             Tuple t = calc(number, hundredsArr, hundredsStrArr, romanText);
-            return toRoman(t.rest, t.romanText);
+            return toRoman(t.number, t.romanText);
         }
 
         return romanText;
@@ -69,16 +69,16 @@ public class RomanNums2 {
             number -= numberArr[3];
         }
 
-        return new Tuple(romanText, number);
+        return new Tuple(number, romanText);
     }
 
     private static class Tuple {
         String romanText;
-        int rest;
+        int number;
 
-        public Tuple(String romanText, int rest) {
+        public Tuple(int number, String romanText) {
             this.romanText = romanText;
-            this.rest = rest;
+            this.number = number;
         }
     }
 }

@@ -22,25 +22,16 @@ public class RomanNums2 {
         if (tuple.left == 0) return tuple.right;
 
         int base = (int) Math.pow(10, (int) Math.log10(tuple.left));
-        Tuples<int[], String[]> map = model.get(base);
+        var map = model.get(base);
 
-        return toRoman(calc(tuple.left, map.left, map.right, tuple.right));
-    }
-
-    /*
-     * The pattern below continues.
-     */
-
-    public Tuples calc(int number, int[] numberArr, String[] romanStrArr, String romanText) {
-
-        for (int i = 0; i < numberArr.length; i++) {
-            while (number >= numberArr[i]) {
-                romanText += romanStrArr[i];
-                number -= numberArr[i];
+        for (int i = 0; i < map.left.length; i++) {
+            while (tuple.left >= map.left[i]) {
+                tuple.right += map.right[i];
+                tuple.left -= map.left[i];
             }
         }
 
-        return new Tuples(number, romanText);
+        return toRoman(tuple);
     }
 
     private static class Tuples<X, Y> {

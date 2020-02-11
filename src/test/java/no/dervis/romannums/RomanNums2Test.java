@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RomanNumsTest2 {
+class RomanNums2Test {
 
     @Test
     void toRomanOnes() {

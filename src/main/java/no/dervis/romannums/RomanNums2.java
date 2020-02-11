@@ -1,47 +1,25 @@
 package no.dervis.romannums;
 
-import java.util.Map;
-
 public class RomanNums2 {
 
-    Map<Integer, Tuples<int[], String[]>> model = Map.of(
-            1,  new Tuples<>(new int[]{9, 5, 4, 1}, new String[]{"IX", "V", "IV", "I"}),
-            10, new Tuples<>(new int[]{90, 50, 40, 10}, new String[]{"XC", "L", "XL", "X"}),
-            100, new Tuples<>(new int[]{900, 500, 400, 100}, new String[]{"CM", "D", "CD", "C"})
-    );
+    final String[] arr = new String[]{"9", "5", "4", "1", "IX", "V", "IV", "I", "XC", "L", "XL", "X", "CM", "D", "CD", "C"};
 
     public String toRoman(int number) {
-        return toRoman(new Tuples(number, ""));
+        return (String) toRoman(number, "")[1];
     }
 
-    /*
-     * This solution uses the common logarithm
-     * to find the base through the exponential function 10^x.
-     */
-    public String toRoman(Tuples<Integer, String> tuple) {
-        if (tuple.left == 0) return tuple.right;
+    public Object[] toRoman(int number, String romanText) {
+        if (number == 0) return new Object[] {number, romanText};
 
-        int base = (int) Math.pow(10, (int) Math.log10(tuple.left));
-        var map = model.get(base);
+        int base = (int) Math.pow(10, (int) Math.log10(number));
 
-        for (int i = 0; i < map.left.length; i++) {
-            while (tuple.left >= map.left[i]) {
-                tuple.right += map.right[i];
-                tuple.left -= map.left[i];
+        for (int i = 0; i < 4; i++) {
+            while (number >= (Integer.parseInt(arr[i])*base)) {
+                romanText += arr[(int) (4 + i + (Math.log10(base) * 4))];
+                number -= (Integer.parseInt(arr[i])*base);
             }
         }
 
-        return toRoman(tuple);
+        return toRoman(number, romanText);
     }
-
-    private static class Tuples<X, Y> {
-        X left;
-        Y right;
-
-        public Tuples(X left, Y right) {
-            this.left = left;
-            this.right = right;
-        }
-    }
-
 }

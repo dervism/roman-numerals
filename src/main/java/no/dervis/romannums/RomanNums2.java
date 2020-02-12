@@ -5,17 +5,17 @@ public class RomanNums2 {
     final String[] arr = new String[]{"9", "5", "4", "1", "IX", "V", "IV", "I", "XC", "L", "XL", "X", "CM", "D", "CD", "C"};
 
     public String toRoman(int number) {
-        return (String) toRoman(number, "")[1];
+        return toRoman(number, new StringBuilder());
     }
 
-    public Object[] toRoman(int number, String romanText) {
-        if (number == 0) return new Object[] {number, romanText};
+    public String toRoman(int number, StringBuilder romanText) {
+        if (number == 0) return romanText.toString();
 
         int base = (int) Math.pow(10, (int) Math.log10(number));
 
         for (int i = 0; i < 4; i++) {
             while (number >= (Integer.parseInt(arr[i])*base)) {
-                romanText += arr[(int) (4 + i + (Math.log10(base) * 4))];
+                romanText.append( arr[(int) (4 + i + (Math.log10(base) * 4))] );
                 number -= (Integer.parseInt(arr[i])*base);
             }
         }

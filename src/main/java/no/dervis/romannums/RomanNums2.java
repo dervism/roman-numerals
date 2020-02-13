@@ -11,7 +11,7 @@ public class RomanNums2 {
     public String toRoman(int number, StringBuilder romanText) {
         if (number == 0) return romanText.toString();
 
-        int base = (int) Math.pow(10, (int) Math.log10(number));
+        int base = (int) Math.pow(10, (int) Math.log10(number)); // log10 is Java's common logarithm
 
         for (int i = 0; i < 4; i++) {
             while (number >= (Integer.parseInt(arr[i])*base)) {

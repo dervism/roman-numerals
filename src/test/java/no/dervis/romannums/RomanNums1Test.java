@@ -2,13 +2,13 @@ package no.dervis.romannums;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RomanNumsTest {
+class RomanNums1Test {
 
     @Test
     void toRomanOnes() {
-        RomanNums r = new RomanNums();
+        RomanNums1 r = new RomanNums1();
         assertEquals("I", r.toRoman(1));
         assertEquals("V", r.toRoman(5));
         assertEquals("IX", r.toRoman(9));
@@ -22,7 +22,7 @@ class RomanNumsTest {
 
     @Test
     void toRomanTens() {
-        RomanNums r = new RomanNums();
+        RomanNums1 r = new RomanNums1();
         assertEquals("XC", r.toRoman(90));
         assertEquals("L", r.toRoman(50));
         assertEquals("XL", r.toRoman(40));
@@ -46,7 +46,7 @@ class RomanNumsTest {
 
     @Test
     void toRomanHundreds() {
-        RomanNums r = new RomanNums();
+        RomanNums1 r = new RomanNums1();
         assertEquals("CM", r.toRoman(900));
         assertEquals("D", r.toRoman(500));
         assertEquals("CD", r.toRoman(400));

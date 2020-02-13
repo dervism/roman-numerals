@@ -1,31 +1,29 @@
 package no.dervis.romannums;
 
-public class RomanNums {
+public class RomanNums1 {
 
     public String toRoman(int number) {
         return toRoman(number, new StringBuilder());
     }
 
     /*
-     * This solution uses the common logarithm
-     * to find the base through the exponential function 10^x.
+     * This is how to NOT solve this kata.
+     *
+     * Even though it works, it contains too many duplicates!
+     *
+     * For each base group the solution support, the more code
+     * is needed to duplicate.
      */
+
     public String toRoman(int number, StringBuilder ret) {
 
         int base = (int) Math.pow(10, (int) Math.log10(number));
 
         if (number == 0) return ret.toString();
 
-        if (base == 1) toRoman(ones(number, ret), ret);
-        if (base == 10) toRoman(tens(number, ret), ret);
-        if (base == 100) toRoman(hundreds(number, ret), ret);
-        /*if (base == 1_000) toRoman(thoundsands(number, ret), ret);
-        if (base == 10_000) toRoman(tenthousands(number, ret), ret);
-        if (base == 100_000) toRoman(hundreds_thoundsands(number, ret), ret);
-        if (base == 1_000_000) toRoman(millions(number, ret), ret);
-        if (base == 10_000_000) toRoman(millions(number, ret), ret);
-        if (base == 100_000_000) toRoman(millions(number, ret), ret);
-        if (base == 1_000_000_000) toRoman(millions(number, ret), ret);*/
+        if (base == 1) return toRoman(ones(number, ret), ret);
+        if (base == 10) return toRoman(tens(number, ret), ret);
+        if (base == 100) return toRoman(hundreds(number, ret), ret);
 
         return ret.toString();
     }

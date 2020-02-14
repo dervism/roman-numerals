@@ -9,10 +9,8 @@ public class RomanNums3 {
         StringBuilder romanText = new StringBuilder();
 
         while (number > 0) {
-            int index = 0;
-            while (Integer.parseInt(arr[0][index]) > number) index++;
-            int c = Integer.parseInt(arr[0][index]);
-
+            int index = 0, c = 0;
+            while ((c = Integer.parseInt(arr[0][index])) > number) index++;
             while(number >= c) {
                 romanText.append(arr[1][index]);
                 number -= c;

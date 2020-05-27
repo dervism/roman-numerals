@@ -1,6 +1,6 @@
 package no.dervis.romannums;
 
-public class RomanNums3 {
+public class RomanNums4 {
 
     final int[] arr = new int[] {900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
@@ -12,10 +12,8 @@ public class RomanNums3 {
         while (number > 0) {
             int index = 0, c;
             while ((c = arr[index]) > number) index++;
-            while(number >= c) {
-                romanText.append(str[index]);
-                number -= c;
-            }
+            romanText.append(str[index]);
+            number -= c;
         }
 
         return romanText.toString();

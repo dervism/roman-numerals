@@ -54,7 +54,6 @@ class RomanNums4Test {
         assertEquals("D", r.toRoman(500));
         assertEquals("CD", r.toRoman(400));
         assertEquals("C", r.toRoman(100));
-        assertEquals("C", r.toRoman(632));
 
         assertEquals("CI", r.toRoman(101));
         assertEquals("CCCIV", r.toRoman(304));
@@ -63,6 +62,7 @@ class RomanNums4Test {
         assertEquals("CDLVI", r.toRoman(456));
         assertEquals("CDXLVIII", r.toRoman(448));
         assertEquals("DLXXII", r.toRoman(572));
+        assertEquals("DCXXXII", r.toRoman(632));
         assertEquals("DCCXXXIX", r.toRoman(739));
         assertEquals("DCCCLXXXVIII", r.toRoman(888));
         assertEquals("CMLXXXIX", r.toRoman(989));
